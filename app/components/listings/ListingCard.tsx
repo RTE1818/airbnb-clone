@@ -21,7 +21,8 @@ interface ListingCardProps {
 
 const ListingCard: React.FC<ListingCardProps> = ({ data, reservation, onAction, disabled, actionLabel, actionId = "", currentUser}) => {
   const router = useRouter();
-  
+  const priceData = data?.price
+
   const { getByValue } = useCountries();
 
   const location = getByValue(data!.locationValue);
@@ -42,8 +43,8 @@ const ListingCard: React.FC<ListingCardProps> = ({ data, reservation, onAction, 
       return reservation.totalPrice;
     }
 
-    return data!.price;
-  }, [reservation, data!.price, data]);
+    return priceData;
+  }, [reservation, priceData]);
 
   const reservationDate = useMemo(() => {
     if (!reservation) {
