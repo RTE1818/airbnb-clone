@@ -10,7 +10,7 @@ import HeartButton from "../HeartButton";
 import Button from "../Button";
 
 interface ListingCardProps {
-  data: airbnbListing;
+  data?: airbnbListing;
   reservation?: airbnbReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
