@@ -3,6 +3,7 @@
 import { Range } from "react-date-range";
 import Calendar from "../inputs/Calendar";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 interface ListingReservationProps {
   price: number;
@@ -15,6 +16,8 @@ interface ListingReservationProps {
 }
 
 const ListingReservation: React.FC<ListingReservationProps> = ({ price, dateRange, totalPrice, onChangeDate, onSubmit, disabledDates, disabled }) => {
+  const router = useRouter();
+  
   return (
     <div className="bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
       <div className="flex flex-row items-center gap-1 p-4">
@@ -37,7 +40,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({ price, dateRang
         <Button 
           disabled={disabled}
           label="Reserve"
-          onClick={onSubmit}
+          onClick={() => router.push('/')}
         />
       </div>
       <div className="p-4 flex flex-row items-center justify-between font-semibold text-lg">
